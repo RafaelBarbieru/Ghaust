@@ -1,0 +1,23 @@
+﻿  engine.cpp
+D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\src\engine.cpp(123,29): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\src\engine.cpp(122,29): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  rng.cpp
+D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\src\utilities\rng.cpp(23,16): warning C4244: 'return': conversion from 'double' to 'unsigned short', possible loss of data
+  Generating Code...
+  Ghaust.vcxproj -> D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\x64\Debug\Ghaust.exe

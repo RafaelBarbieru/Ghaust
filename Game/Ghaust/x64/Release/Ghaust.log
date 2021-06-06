@@ -1,0 +1,32 @@
+﻿  stdafx.cpp
+  rng.cpp
+D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\src\utilities\rng.cpp(23,16): warning C4244: 'return': conversion from 'double' to 'unsigned short', possible loss of data
+  bedlamite.cpp
+D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\src\entities\enemies\bedlamite.cpp(47,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\src\entities\enemies\bedlamite.cpp(47,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  engine.cpp
+D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\src\engine.cpp(121,29): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\src\engine.cpp(120,29): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+  source.cpp
+  Generating code
+  202 of 228 functions (88.6%) were compiled, the rest were copied from previous compilation.
+    124 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Ghaust.vcxproj -> D:\Personal Projects\Programming Languages\C_C++\Ghaust\Game\Ghaust\x64\Release\Ghaust.exe
