@@ -36,24 +36,36 @@
     <ClCompile Include="src\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\entities\enemies\bedlamite.cpp">
+    <ClCompile Include="src\entities\enemies\bedlamite\bedlamite.cpp">
       <Filter>Source Files\entities\enemies</Filter>
     </ClCompile>
     <ClCompile Include="src\utilities\rng.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\entities\player\player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entities\enemies\ghost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\engine.hpp">
+    <ClInclude Include="src\engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\entities\enemies\bedlamite.hpp">
+    <ClInclude Include="src\entities\enemies\bedlamite\bedlamite.h">
       <Filter>Header Files\entities\enemies</Filter>
     </ClInclude>
     <ClInclude Include="src\utilities\rng.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\player\player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entities\enemies\ghost.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

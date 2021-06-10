@@ -1,8 +1,8 @@
 #include <stdafx.h>
 #include <rng.h>
 
-#include "engine.hpp"
-#include "entities/enemies/bedlamite.hpp"
+#include "engine.h"
+#include "entities/enemies/bedlamite/bedlamite.h"
 
 #ifdef _DEBUG
 #define CLEAR_WINDOW_BG_COLOR sf::Color(57, 255, 20, 255)
@@ -129,7 +129,7 @@ void Engine::render()
 	// Drawing a Bedlamite
 	unsigned short int randomNumber = RNG::btw0And1();
 	printf("%d", randomNumber);
-	Bedlamite bedlamite(64, 64, false);
+	Bedlamite bedlamite(true);
 	sf::Sprite bedlamiteSprite = bedlamite.spawn(200, 200);
 	this->m_window->draw(bedlamiteSprite);
 

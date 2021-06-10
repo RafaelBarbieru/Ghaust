@@ -149,8 +149,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\entities\enemies\ghost.cpp" />
+    <ClCompile Include="src\entities\player\player.cpp" />
     <ClCompile Include="src\utilities\rng.cpp" />
-    <ClCompile Include="src\entities\enemies\bedlamite.cpp" />
+    <ClCompile Include="src\entities\enemies\bedlamite\bedlamite.cpp" />
     <ClCompile Include="src\engine.cpp" />
     <ClCompile Include="src\source.cpp" />
     <ClCompile Include="src\stdafx.cpp">
@@ -159,9 +161,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\entities\enemies\ghost.h" />
+    <ClInclude Include="src\entities\player\player.h" />
     <ClInclude Include="src\utilities\rng.h" />
-    <ClInclude Include="src\entities\enemies\bedlamite.hpp" />
-    <ClInclude Include="src\engine.hpp" />
+    <ClInclude Include="src\entities\enemies\bedlamite\bedlamite.h" />
+    <ClInclude Include="src\engine.h" />
     <ClInclude Include="src\stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

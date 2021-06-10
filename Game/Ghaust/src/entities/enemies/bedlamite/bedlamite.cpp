@@ -1,6 +1,19 @@
 #include <stdafx.h>
 #include <rng.h>
-#include "bedlamite.hpp"
+#include "bedlamite.h"
+#include "entities/enemies/ghost.h"
+
+void Bedlamite::setup()
+{
+	// Initializing functional variables
+	m_canBeScared = true;
+	m_damageType = { DamageType::Sanity };	
+
+	// Setting up meta variables
+	m_scaleFactor = 4.f;
+	m_pathToTextures = "src/entities/enemies/bedlamite/";
+	loadTextures();
+}
 
 /*
 	@return void
@@ -13,11 +26,6 @@ void Bedlamite::loadTextures()
 {
 	m_textures.push_back("bedlamite_1.png");
 	m_textures.push_back("bedlamite_2.png");
-}
-
-void Bedlamite::doDamage()
-{
-	printf("I'm doing %f damage", damage);
 }
 
 /*
@@ -43,20 +51,16 @@ sf::Sprite Bedlamite::spawn(int xPos, int yPos)
 	// Scaling up the sprite if the trueSize boolean is false
 	if (!m_trueSize)
 	{
-		m_sprite.setScale(4, 4);
+		m_sprite.setScale(m_scaleFactor, m_scaleFactor);
 	}	
 	m_sprite.setPosition(xPos, yPos);
 	return m_sprite;
 }
 
-Bedlamite::Bedlamite(const unsigned int xSize, const unsigned int ySize, bool trueSize)
+Bedlamite::Bedlamite(bool shouldBeScaledUp)
 {
-	// Assigning params to member variables
-	m_size = sf::Vector2i(xSize, ySize);
-	m_trueSize = trueSize;
-
-	// Loading textures names
-	loadTextures();
+	m_trueSize = !shouldBeScaledUp;
+	setup();
 }
 
 Bedlamite::~Bedlamite()
