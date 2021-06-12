@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\entities\gameObject.cpp" />
     <ClCompile Include="src\entities\enemies\ghost.cpp" />
     <ClCompile Include="src\entities\player\player.cpp" />
     <ClCompile Include="src\utilities\rng.cpp" />
@@ -161,6 +162,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\entities\gameObject.h" />
     <ClInclude Include="src\entities\enemies\ghost.h" />
     <ClInclude Include="src\entities\player\player.h" />
     <ClInclude Include="src\utilities\rng.h" />

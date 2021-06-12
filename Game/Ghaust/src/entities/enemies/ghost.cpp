@@ -1,7 +1,10 @@
 #include <stdafx.h>
 #include "ghost.h"
 
-Ghost::Ghost()
+namespace ghaust
 {
-
+	sf::Sprite Ghost::getSprite()
+	{
+		return m_sprite;
+	}
 }

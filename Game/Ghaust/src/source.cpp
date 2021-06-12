@@ -1,10 +1,14 @@
 #include "stdafx.h"
-#include "engine.hpp"
+#include "engine.h"
+#include "entities/enemies/bedlamite/bedlamite.h"
 
 int main()
 {
     // Creating the game engine
-    Engine engine;
+    ghaust::Engine engine;
+
+    // Creating a Bedlamite
+    ghaust::Bedlamite bedlamite(true);
 
     // Main game loop
     while (engine.isRunning())
@@ -13,7 +17,7 @@ int main()
         engine.update();
 
         // Render
-        engine.render();
+        engine.render(bedlamite);
     }
 	return 0;
 }

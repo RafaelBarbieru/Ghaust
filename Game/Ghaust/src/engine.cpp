@@ -2,11 +2,10 @@
 #include <rng.h>
 
 #include "engine.h"
-#include "entities/enemies/bedlamite/bedlamite.h"
 
 #ifdef _DEBUG
 #define CLEAR_WINDOW_BG_COLOR sf::Color(57, 255, 20, 255)
-#define VIDEO_MODE_STYLE sf::Style::Titlebar | sf::Style::Close
+#define VIDEO_MODE_STYLE sf::Style::Default
 #endif
 
 #ifndef _DEBUG
@@ -14,132 +13,119 @@
 #define VIDEO_MODE_STYLE sf::Style::Fullscreen
 #endif
 
-
-/*
+namespace ghaust
+{
+	/*
 	@return void
 
 	Initializes useful inner variables
 */
-void Engine::initVars()
-{
-	m_window = nullptr;
-}
-
-/*
-	@return void
-
-	Initializes the current window
-*/
-void Engine::initWindow()
-{
-	// Initializing the video mode
-	m_videoMode.height = sf::VideoMode::getDesktopMode().height - 70;
-	m_videoMode.width = sf::VideoMode::getDesktopMode().width;
-	m_windowName = "Ghaust";
-
-	// Initializing the window
-	m_window = new sf::RenderWindow(
-		m_videoMode, 
-		m_windowName, 
-		VIDEO_MODE_STYLE
-	);
-}
-
-/*
-	@return void
-
-	Polls the events
-*/
-void Engine::pollEvents()
-{
-	// Event polling
-	while (m_window->pollEvent(m_event))
+	void Engine::initVars()
 	{
-		switch (m_event.type)
-		{
+		m_window = nullptr;
+	}
 
-		// Window closure
-		case sf::Event::Closed:
-			m_window->close();
-			break;
-		
-		// Keyboard events
-		case sf::Event::KeyPressed:			
-			switch (m_event.key.code)
+	/*
+		@return void
+
+		Initializes the current window
+	*/
+	void Engine::initWindow()
+	{
+		// Initializing the video mode
+		m_videoMode.height = 512.f;
+		m_videoMode.width = 512.2;
+		m_windowName = "Ghaust: Haunted";
+
+		// Initializing the window
+		m_window = new sf::RenderWindow(
+			m_videoMode,
+			m_windowName,
+			VIDEO_MODE_STYLE
+		);
+	}
+
+	/*
+		@return void
+
+		Polls the events
+	*/
+	void Engine::pollEvents()
+	{
+		// Event polling
+		while (m_window->pollEvent(m_event))
+		{
+			switch (m_event.type)
 			{
-				// The window can be closed with the Escape key
-				case sf::Keyboard::Escape:			
+
+				// Window closure
+			case sf::Event::Closed:
+				m_window->close();
+				break;
+
+				// Keyboard events
+			case sf::Event::KeyPressed:
+				switch (m_event.key.code)
+				{
+					// The window can be closed with the Escape key
+				case sf::Keyboard::Escape:
 					m_window->close();
 					break;
+				}
 			}
 		}
 	}
-}
 
-/*
-	Constructor
-*/
-Engine::Engine()
-{
-	this->initVars();
-	this->initWindow();
-}
+	/*
+		Constructor
+	*/
+	Engine::Engine()
+	{
+		this->initVars();
+		this->initWindow();
+	}
 
-/*
-	Destructor
-*/
-Engine::~Engine()
-{
-	delete this->m_window;
-}
+	/*
+		Destructor
+	*/
+	Engine::~Engine()
+	{
+		delete this->m_window;
+	}
 
-/*
-	@return bool
+	/*
+		@return bool
 
-	Whether the current window is open
-*/
-const bool Engine::isRunning() const
-{
-	return this->m_window->isOpen();
-}
+		Whether the current window is open
+	*/
+	const bool Engine::isRunning() const
+	{
+		return this->m_window->isOpen();
+	}
 
-/*
-	@return void
+	/*
+		@return void
 
-	Renders the scene, clearing the previous data in the buffer, drawing the new one
-	and finally displaying it.
-*/
-void Engine::render()
-{
-	// Clear
-	this->m_window->clear(CLEAR_WINDOW_BG_COLOR);
+		Renders the scene, clearing the previous data in the buffer, drawing the new one
+		and finally displaying it.
+	*/
+	void Engine::render(ghaust::GameObject& object)
+	{
+		// Clear
+		this->m_window->clear(CLEAR_WINDOW_BG_COLOR);
 
-	// Draw
+		// Draw
+		m_window->draw(object.getSprite());
 
-	// Drawing background rectangle set to black
-	sf::RectangleShape backgroundRectangle(
-		sf::Vector2f(
-			this->m_window->getSize().x, 
-			this->m_window->getSize().y
-		)
-	);
-	backgroundRectangle.setFillColor(sf::Color::Black);
-	this->m_window->draw(backgroundRectangle);
+		// Display
+		this->m_window->display();
 
-	// Drawing a Bedlamite
-	unsigned short int randomNumber = RNG::btw0And1();
-	printf("%d", randomNumber);
-	Bedlamite bedlamite(true);
-	sf::Sprite bedlamiteSprite = bedlamite.spawn(200, 200);
-	this->m_window->draw(bedlamiteSprite);
+	}
 
-	// Display
-	this->m_window->display();
-	
-}
+	void Engine::update()
+	{
+		// Event polling
+		this->pollEvents();
+	}
 
-void Engine::update()
-{	
-	// Event polling
-	this->pollEvents();
 }
